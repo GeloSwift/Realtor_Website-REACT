@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const base = "inline-block py-3 text-sm font-semibold border-b-[3px] -mb-[1px]";
   const inactive = "text-gray-400 border-b-transparent";
   const active = "text-black border-b-red-500";
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white border-b shadow-sm sticky top-0 z-40">
@@ -14,6 +15,7 @@ export default function Header() {
             src="https://static.rdc.moveaws.com/rdc-ui/logos/logo-brand.svg"
             alt="logo"
             className="h-5 cursor-pointer"
+            onClick={() => navigate("/")}
           />
         </div>
 
