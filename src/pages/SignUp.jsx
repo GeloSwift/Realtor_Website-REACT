@@ -45,7 +45,17 @@ export default function SignUp() {
       toast.success("Sign up successful!");
       navigate("/");
     } catch (error) {
-      toast.error("Something went wrong with the registration");
+      if (error.code === "auth/email-already-in-use") {
+        toast.error("Email already in use");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email address");
+      } else if (error.code === "auth/missing-password") {
+        toast.error("Missing password");
+      } else if (error.code === "auth/weak-password") {
+        toast.error("Weak password");
+      } else if (error.code === "auth/operation-not-allowed") {
+        toast.error("Something went wrong with the registration");
+      }
     }
   }
   return (
